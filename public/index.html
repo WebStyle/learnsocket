@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>My socket</title>
+  </head>
+  <body>
+  <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+  <script>
+    var socket = io('http://localhost:9090');
+      console.log('New user connected');
+      socket.on('news', function (data) {
+        console.log(data);
+        socket.emit('add', {text: "Hello world"})
+      });
+    function sendEmit() {
+      socket.emit('private', "Farrux", "H, mean");
+    }
+  </script>
+  </body>
+</html>
